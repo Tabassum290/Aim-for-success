@@ -1,0 +1,83 @@
+[
+    {
+      "image": "https://i.ibb.co.com/CQkz33v/career.jpg",
+      "service_name": "Career Counseling Sessions",
+      "category": "Online",
+      "brief_description": "One-on-one career counseling to guide you through job opportunities, career shifts, and personal development.",
+      "pricing": "$100 per session",
+      "duration": "05-12-24 5-6pm",
+      "counselor": "John Doe, M.S. in Career Development",
+      "rating": 4.8
+    },
+    {
+      "image": "https://i.ibb.co.com/VHDkSC0/resume.jpg",
+      "service_name": "Resume Review",
+      "category": "Online",
+      "brief_description": "Expert review and suggestions for enhancing your resume to make it stand out to employers.",
+      "pricing": "$50 per review",
+      "duration": "06-12-24 3-4pm",
+      "counselor": "Jane Smith, Professional Resume Writer",
+      "rating": 4.5
+    },
+    {
+      "image": "https://i.ibb.co.com/tKDKDfb/interview.webp",
+      "service_name": "Interview Preparation",
+      "category": "Offline",
+      "brief_description": "Prepare for interviews with mock sessions, personalized feedback, and strategies to impress hiring managers.",
+      "pricing": "$75 per session",
+      "duration": "07-12-24 10-11am",
+      "counselor": "Alex Lee, Certified Interview Coach",
+      "rating": 4.7
+    },
+    {
+      "image": "https://i.ibb.co.com/vH5Cb52/job-search.jpg",
+      "service_name": "Job Search Strategies",
+      "category": "Online",
+      "brief_description": "Learn how to effectively search for jobs, tailor your applications, and network with professionals in your field.",
+      "pricing": "$60 per session",
+      "duration": "08-12-24 2-3pm",
+      "counselor": "Emily Clark, HR Specialist",
+      "rating": 4.6
+    },
+    {
+      "image": "https://i.ibb.co.com/xf3jfH6/content-review.jpg",
+      "service_name": "Cover Letter Review",
+      "category": "Online",
+      "brief_description": "Get expert advice on writing compelling cover letters that catch the attention of employers.",
+      "pricing": "$40 per review",
+      "duration": "09-12-24 4-5pm",
+      "counselor": "Michael Johnson, Professional Writer",
+      "rating": 4.4
+    },
+    {
+      "image": "https://i.ibb.co.com/JjCbxYx/soft-skills.jpg",
+      "service_name": "Soft Skills Training",
+      "category": "Group",
+      "brief_description": "Enhance your communication, teamwork, and problem-solving abilities through interactive group sessions.",
+      "pricing": "$120 per group session",
+      "duration": "10-12-24 6-7pm",
+      "counselor": "Sara Williams, Soft Skills Trainer",
+      "rating": 4.9
+    },
+    {
+      "image": "https://i.ibb.co.com/X5c3dJs/Coaching-Leadership.webp",
+      "service_name": "Leadership Coaching",
+      "category": "Offline",
+      "brief_description": "Personalized coaching to develop leadership qualities, decision-making, and team management skills.",
+      "pricing": "$150 per session",
+      "duration": "11-12-24 1-2pm",
+      "counselor": "David Brown, Executive Coach",
+      "rating": 5.0
+    },
+    {
+      "image": "https://i.ibb.co.com/TWJNtSL/networking.jpg",
+      "service_name": "Networking Workshop",
+      "category": "Group",
+      "brief_description": "Learn effective networking strategies, how to build connections, and leverage them for career growth.",
+      "pricing": "$80 per workshop",
+      "duration": "12-12-24 9-10am",
+      "counselor": "Laura Davis, Career Strategist",
+      "rating": 4.6
+    }
+  ]
+  
