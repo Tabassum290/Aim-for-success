@@ -1,10 +1,14 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
+  const {user,logOut} = useContext(AuthContext);
     const links = <>
     <NavLink to="/" className={"mx-6"}>Home</NavLink>
-    <NavLink to="/profile">My Profile</NavLink>
+    <NavLink to="/consultant">Book A Consultant</NavLink>
+    <NavLink to="/profile" className={"mx-6"}>My Profile</NavLink>
+    
     </>
     return (
         <div>
@@ -31,7 +35,7 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-4xl font-bold italic">Aim</a>
+    <a className="lg:text-4xl md:text-4xl text-3xl font-bold italic mr-4">Aim</a>
   </div>
   <div className="navbar-center hidden lg:flex gap-6">
     <ul className="menu menu-horizontal px-8 font-semibold text-lg">
@@ -39,12 +43,16 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
+  <p>{user && user?.email}</p>
   <div className="avatar">
   <div className="w-14 mx-4 rounded-full">
     <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
   </div>
   </div>
-    <a className="btn btn-primary">Login</a>
+  {
+    user && user?.email ?  <button onClick={logOut} className='btn btn-neutral'>LogOut</button> :  <Link to="/auth/login" className="btn btn-primary">Login</Link>
+  }
+  
   </div>
 </div>
         </div>

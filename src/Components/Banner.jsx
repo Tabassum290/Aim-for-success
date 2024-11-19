@@ -4,14 +4,14 @@ const Banner = () => {
     return (
         <div className='lg:flex justify-between items-center '>
             <div>
-                <h1 className='text-4xl font-bold'>Welcome to <br/> <span className=' text-green-600'>AIM TO SUCCESS</span></h1>
+                <h1 className='text-4xl font-bold'>Welcome to <br/> <span className=' text-green-600'>AIM FOR SUCCESS</span></h1>
             </div>
-            <div className="carousel w-full lg:w-3/4 my-8 rounded-lg h-[400px] border-2">
+            <div className="carousel w-full lg:w-3/4 my-8 rounded-lg h-[400px]">
   <div id="slide1" className="carousel-item relative w-full">
     <img
       src="https://i.ibb.co.com/w49bysq/banner1.jpg"
       className="w-full p-4" />
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+    <div className="absolute left-5 right-5 top-1/2 flex transform justify-between">
       <a href="#slide3" className="btn btn-circle">❮</a>
       <a href="#slide2" className="btn btn-circle">❯</a>
     </div>
