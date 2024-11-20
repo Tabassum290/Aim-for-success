@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const {createNewUser,setUser} = useContext(AuthContext);
+    const {createNewUser,setUser , updateProfileData } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const validatePassword = (password) => {
@@ -37,7 +37,13 @@ const Register = () => {
      .then(result=> {
         console.log(result.user);
         setUser(result.user);
-        navigate(location?.state ? location.state : "/");
+        updateProfileData({displayName
+            :name, 
+            photoURL
+            :photo})
+            .then(() => {
+                navigate("/");
+            })
         toast.success("Registration Successfull.Welcome to Aim");
      })   
      .catch(error => {

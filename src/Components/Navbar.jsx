@@ -1,9 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
   const {user,logOut} = useContext(AuthContext);
+  const [showName, setShowName] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowName(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowName(false);
+  };
     const links = <>
     <NavLink to="/" className={"mx-6"}>Home</NavLink>
     <NavLink to="/consultant">Book A Consultant</NavLink>
@@ -42,11 +51,35 @@ const Navbar = () => {
      {links}
     </ul>
   </div>
-  <div className="navbar-end">
-  <p>{user && user?.email}</p>
+  <div className="navbar-end flex items-center gap-4">
   <div className="avatar">
-  <div className="w-14 mx-4 rounded-full">
-    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+  <div className='w-16'>
+  {user && user?.email ? (
+        <div className="relative flex flex-col items-center">
+          {/* User Avatar */}
+          <img
+            className="w-8 h-8 rounded-full"
+            src={user?.photoURL}
+            alt="User Profile"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
+          {/* Show User Name on Hover */}
+          {showName && (
+            <p className="text-sm font-semibold">{user.displayName}</p>
+          )}
+        </div>
+      ) : (
+        <div className="relative flex flex-col items-center">
+          {/* Default Avatar */}
+          <img
+            className="w-10 rounded-3xl"
+            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+            alt="Default Avatar"
+          />
+          <p className="mt-2 text-sm font-semibold">Guest</p>
+        </div>
+      )}
   </div>
   </div>
   {
