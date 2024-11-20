@@ -1,9 +1,13 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
-
+import { toast } from 'react-toastify';
 const Login = () => {
-    const {setUser,userLogIn}= useContext(AuthContext);
+    const { userLogIn,setUser }= useContext(AuthContext);
+    const [error,setError] = useState({});
+    const location = useLocation();
+    const navigate = useNavigate();
+console.log(location);
     const handleLoginSubmit=(e)=> {
        e.preventDefault();
        const email = e.target.email.value;
@@ -14,9 +18,13 @@ const Login = () => {
        .then(result => {
         const user = result.user;
         setUser(user);
-       })
-       .catch(error => {
-        console.log(error.message,error.code);
+        navigate(location?.state ? location.state : "/");
+        toast.success("Login Successful.Welcome to Aim");
+      })
+       .catch(err => {
+        setError({...error,login:err.code});
+        console.log(err.message,err.code);
+        toast.error(`Login failed: ${error.message}`);
        })
     }
     return (
@@ -39,6 +47,13 @@ const Login = () => {
             <span className="label-text">Password</span>
           </label>
           <input type="password" placeholder="password" name="password" className="input input-bordered" required />
+         {
+          error.login && (
+            <label className="label text-red-600 font-semibold">
+            {error.login}
+          </label>
+          )
+         }
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>

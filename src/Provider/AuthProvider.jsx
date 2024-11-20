@@ -31,6 +31,7 @@ unSubscribe();
 },[])
 const authInfo = {
         user,
+        setUser,
       createNewUser ,
       logOut,
      userLogIn,

@@ -11,12 +11,17 @@ import AuthLayout from '../Layout/AuthLayout';
 import Login from '../Components/Login';
 import Register from '../Components/Register';
 import PrivateRout from './PrivateRout';
+import About from '../Components/About';
 
   const Router = createBrowserRouter([
     {
       path: "/",
       element: <Home/>,
       errorElement:<ErrorPage/>,
+    },
+    {
+      path:"/about",
+      element:<About/>
     },
     {
         path: "/profile",

@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const [error, setError] = useState('');
     const {createNewUser,setUser} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
     const validatePassword = (password) => {
         const isLengthValid = password.length >= 6;
         const hasUppercase = /[A-Z]/.test(password);
@@ -34,6 +37,8 @@ const Register = () => {
      .then(result=> {
         console.log(result.user);
         setUser(result.user);
+        navigate(location?.state ? location.state : "/");
+        toast.success("Registration Successfull.Welcome to Aim");
      })   
      .catch(error => {
         console.log("Error",error.message,error.code);
@@ -45,8 +50,8 @@ const Register = () => {
         } else {
             setError(''); 
             console.log(email, password, name, photo);
-           
         }
+      
     };
 
     return (
