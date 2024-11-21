@@ -21,9 +21,9 @@ const ServiceDetails = () => {
     <div>
       <Navbar />
       <section className="grid grid-cols-1 lg:grid-cols-4 mx-auto w-11/12">
-        <div className="col-span-3 ml-40">
+        <div className="col-span-3 lg:ml-40">
           <h2 className='font-bold text-4xl text-green-900 my-6'>{service_name} Details</h2>
-        <div className="card bg-base-100 lg:w-3/4 w-full my-8 border-2 border-green-800 p-4">
+        <div className="card bg-base-100 my-8 border-2 border-green-800 p-4">
   <figure>
     <img className='h-[300px] w-3/4 rounded-lg'
       src={image}
