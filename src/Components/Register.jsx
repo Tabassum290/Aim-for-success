@@ -5,11 +5,12 @@ import { toast } from 'react-toastify';
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase';
-import { FaFacebook } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaFacebook } from 'react-icons/fa';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { createNewUser, setUser, updateProfileData, updateGoogle } = useContext(AuthContext);
+    const [showPass,setShowPass] = useState(false);
+    const { createNewUser, setUser, updateProfileData } = useContext(AuthContext);
     const navigate = useNavigate();
     const provider = new GoogleAuthProvider();
     const validatePassword = (password) => {
@@ -115,20 +116,16 @@ const Register = () => {
                                     required
                                 />
                             </div>
-                            <div className="form-control">
+                            <div className="form-control relative">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input
-                                    type="password"
-                                    placeholder="password"
-                                    name="password"
-                                    className="input input-bordered"
-                                    required
-                                />
+                                <input type={showPass ?"text": "password"} placeholder="password" name="password" className="input input-bordered " required />
+          <button onClick={()=> setShowPass(!showPass)} className='btn btn-ghost absolute right-4 top-[34px]'>{
+            showPass ? <FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>
+            }
+          </button>
                             </div>
-
-                            {/* Display error if validation fails */}
                             {error && <p className="text-red-500 text-sm">{error}</p>}
 
                             <div className="form-control mt-6">

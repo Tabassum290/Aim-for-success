@@ -13,6 +13,7 @@ import Register from '../Components/Register';
 import PrivateRout from './PrivateRout';
 import About from '../Components/About';
 
+
   const Router = createBrowserRouter([
     {
       path: "/",
@@ -29,7 +30,12 @@ import About from '../Components/About';
       },
       {
         path: "/consultant",
-        element: <PrivateRout><Consultant/></PrivateRout>,
+        element: <PrivateRout><Consultant /></PrivateRout>,
+        loader: async () => {
+          const res = await fetch("/career.json");
+          const data = await res.json();
+          return { data }; 
+        },
       },
       {
         path: "/service/:id",
@@ -43,8 +49,7 @@ const singleData = data.find(d => d.id === String(params.id));
 return singleData;
 },
 },
-
-   {
+{
     path:"auth",
     element:<AuthLayout/>,
     children: [
@@ -57,7 +62,7 @@ return singleData;
         element:<Register/>,
       },
     ]
-   }
+}
 
   ]);
 

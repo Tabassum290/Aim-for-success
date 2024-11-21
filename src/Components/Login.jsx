@@ -1,10 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { auth } from '../firebase';
 const Login = () => {
     const { userLogIn,setUser }= useContext(AuthContext);
+    const emailRef = useRef();
     const [error,setError] = useState({});
+    const [showPass,setShowPass]=useState(false);
     const location = useLocation();
     const navigate = useNavigate();
 console.log(location);
@@ -27,6 +32,20 @@ console.log(location);
         toast.error(`Login failed: ${error.message}`);
        })
     }
+const handleForgotPassword =() => {
+  console.log("sent me email",emailRef.current.value);
+  const email = emailRef.current.value;
+  if(!email){
+    toast("Please Provide a valid Email Adress");
+  }else{
+    sendPasswordResetEmail(auth,email)
+    .then(() => {
+      toast("Password Reset email sent, Please Check Your email")
+    })
+  }
+
+}
+
     return (
         <div>
            <div className="bg-base-200 p-12">
@@ -40,13 +59,17 @@ console.log(location);
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" placeholder="email" className="input input-bordered" name ="email"required />
+          <input type="email" placeholder="email" className="input input-bordered" ref={emailRef} name ="email"required />
         </div>
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" placeholder="password" name="password" className="input input-bordered" required />
+          <input type={showPass ?"text": "password"} placeholder="password" name="password" className="input input-bordered " required />
+          <button onClick={()=> setShowPass(!showPass)} className='btn btn-ghost absolute right-4 top-[34px]'>{
+            showPass ? <FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>
+            }
+          </button>
          {
           error.login && (
             <label className="label text-red-600 font-semibold">
@@ -54,7 +77,7 @@ console.log(location);
           </label>
           )
          }
-          <label className="label">
+          <label onClick={handleForgotPassword} className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
         </div>

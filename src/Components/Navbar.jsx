@@ -15,7 +15,7 @@ const {user,logOut} = useContext(AuthContext);
   };
     const links = <>
     <NavLink to="/" className={"mx-6"}>Home</NavLink>
-    <NavLink to="/consultant">Book A Consultant</NavLink>
+    <NavLink to="/consultant">Book Service</NavLink>
     <NavLink to="/profile" className={"mx-6"}>My Profile</NavLink>
     <NavLink to="/about">About Us</NavLink>
     </>
