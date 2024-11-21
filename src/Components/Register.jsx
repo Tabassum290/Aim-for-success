@@ -1,13 +1,17 @@
 import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import { AiFillGoogleCircle } from "react-icons/ai";
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth } from '../firebase';
+import { FaFacebook } from 'react-icons/fa';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const {createNewUser,setUser , updateProfileData } = useContext(AuthContext);
-    const location = useLocation();
+    const { createNewUser, setUser, updateProfileData, updateGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
+    const provider = new GoogleAuthProvider();
     const validatePassword = (password) => {
         const isLengthValid = password.length >= 6;
         const hasUppercase = /[A-Z]/.test(password);
@@ -22,7 +26,22 @@ const Register = () => {
         if (!hasLowercase) {
             return "Password must contain at least one lowercase letter.";
         }
-        return null; 
+        return null;
+    };
+
+    const handleGoogleLogin = () => {
+        console.log("Google login button clicked");
+        console.log(auth,provider)
+        signInWithPopup(auth,provider)
+            .then(result => {
+                console.log("Google login successful:", result.user);
+                toast.success("Google Login successful!");
+                navigate("/"); // Navigate after successful login
+            })
+            .catch(error => {
+                console.error("Google login error:", error);
+                toast.error("Google Login failed!");
+            });
     };
 
     const handleRegisterSubmit = (e) => {
@@ -33,31 +52,26 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-     createNewUser(email,password)
-     .then(result=> {
-        console.log(result.user);
-        setUser(result.user);
-        updateProfileData({displayName
-            :name, 
-            photoURL
-            :photo})
-            .then(() => {
-                navigate("/");
-            })
-        toast.success("Registration Successfull.Welcome to Aim");
-     })   
-     .catch(error => {
-        console.log("Error",error.message,error.code);
-     })
         const passwordError = validatePassword(password);
-
         if (passwordError) {
             setError(passwordError);
         } else {
-            setError(''); 
-            console.log(email, password, name, photo);
+            setError('');
+            createNewUser(email, password)
+                .then(result => {
+                    console.log(result.user);
+                    setUser(result.user);
+                    updateProfileData({ displayName: name, photoURL: photo })
+                        .then(() => {
+                            toast.success("Registration Successful. Welcome to Aim");
+                            navigate("/"); // Navigate after successful registration
+                        });
+                })
+                .catch(error => {
+                    console.error("Error", error.message, error.code);
+                    toast.error("Registration Failed");
+                });
         }
-      
     };
 
     return (
@@ -112,11 +126,6 @@ const Register = () => {
                                     className="input input-bordered"
                                     required
                                 />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">
-                                        Forgot password?
-                                    </a>
-                                </label>
                             </div>
 
                             {/* Display error if validation fails */}
@@ -132,6 +141,22 @@ const Register = () => {
                                 </span>
                             </p>
                         </form>
+                        <div className="flex justify-center mb-4">
+                            <button onClick={handleGoogleLogin} className="btn btn-outline w-full">
+                                <span className="text-2xl">
+                                    <AiFillGoogleCircle />
+                                </span>
+                                Login With Google
+                            </button>
+                        </div>
+                        <div className="flex justify-center mb-4">
+                            <button onClick={handleGoogleLogin} className="btn btn-outline w-full">
+                                <span className="text-2xl">
+                                    <FaFacebook/>
+                                </span>
+                                Login With Facebook
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

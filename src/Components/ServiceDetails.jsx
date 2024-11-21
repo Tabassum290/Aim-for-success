@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData} from 'react-router-dom';
 
 const ServiceDetails = () => {
   const {image,service_name,category,brief_description,pricing,duration,counselor,rating} = useLoaderData();
@@ -20,10 +20,10 @@ const ServiceDetails = () => {
   return (
     <div>
       <Navbar />
-      <section className="grid grid-cols-1 lg:grid-cols-4 gap-6 mx-auto w-11/12">
-        <div className="col-span-3">
-          <h2 className='font-bold text-5xl text-green-900 text-center my-6'>{service_name}Details</h2>
-        <div className="card bg-base-100 lg:w-3/4 w-full my-8 border-2 p-4">
+      <section className="grid grid-cols-1 lg:grid-cols-4 mx-auto w-11/12">
+        <div className="col-span-3 ml-40">
+          <h2 className='font-bold text-4xl text-green-900 my-6'>{service_name} Details</h2>
+        <div className="card bg-base-100 lg:w-3/4 w-full my-8 border-2 border-green-800 p-4">
   <figure>
     <img className='h-[300px] w-3/4 rounded-lg'
       src={image}
@@ -38,7 +38,7 @@ const ServiceDetails = () => {
     <p className='text-green-700 font-bold text-xl'>Counsilor: <span className='font-semibold text-md'>{counselor} </span></p>
     
     <p className='font-bold'>Duration :<span className='font-semibold'>{duration}</span></p>
-    <p className='font-bold'>Duration :<span className='font-semibold'>{rating}
+    <p className='font-bold'>Rating :<span className='font-semibold'>{rating}
     <div className="rating">
   <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
   </div>
@@ -50,7 +50,7 @@ const ServiceDetails = () => {
 </div>
         </div>
 
-        <div className="col-span-1 border-2 my-6 p-6 rounded-lg">
+        <div className="col-span-1 border-2 my-6 p-6 rounded-lg border-green-800 mt-28 ">
         
         <h2 className="text-2xl font-semibold mb-4">Give A Feedback</h2>
         <div className="rating">

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className='lg:flex justify-between items-center '>
+        <div className='lg:flex justify-between items-center'>
             <div>
                 <h1 className='text-4xl font-bold'>Welcome to <br/> <span className=' text-green-600'>AIM FOR SUCCESS</span></h1>
             </div>
@@ -35,7 +35,7 @@ const Banner = () => {
     </div>
   </div>
 </div>
-        </div>
+</div>
     );
 };
 

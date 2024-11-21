@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
-  const {user,logOut} = useContext(AuthContext);
+const {user,logOut} = useContext(AuthContext);
   const [showName, setShowName] = useState(false);
 
   const handleMouseEnter = () => {
@@ -56,24 +56,21 @@ const Navbar = () => {
   <div className='w-16'>
   {user && user?.email ? (
         <div className="relative flex flex-col items-center">
-          {/* User Avatar */}
           <img
-            className="w-8 h-8 rounded-full"
+            className="w-6 rounded-full"
             src={user?.photoURL}
             alt="User Profile"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           />
-          {/* Show User Name on Hover */}
           {showName && (
-            <p className="text-sm font-semibold">{user.displayName}</p>
+            <p className="text-sm font-semibold ml-[200px]">{user.displayName}</p>
           )}
         </div>
       ) : (
         <div className="relative flex flex-col items-center">
-          {/* Default Avatar */}
           <img
-            className="w-10 rounded-3xl"
+            className="w-8 rounded-3xl"
             src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
             alt="Default Avatar"
           />
@@ -83,7 +80,7 @@ const Navbar = () => {
   </div>
   </div>
   {
-    user && user?.email ?  <button onClick={logOut} className='btn btn-neutral'>LogOut</button> :  <Link to="/auth/login" className="btn btn-primary">Login</Link>
+    user && user?.email ?  <button onClick={logOut} className='btn btn-outline text-white'>LogOut</button> :  <Link to="/auth/login" className="btn btn-primary">Login</Link>
   }
   
   </div>
