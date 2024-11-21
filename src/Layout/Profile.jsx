@@ -10,7 +10,6 @@ const handleUpdateProfile= (e) => {
 e.preventDefault();
 const name = e.target.name.value;
 const photo = e.target.photo.value;
-console.log(name,photo);
 createNewUser()
 .then(result => {
   console.log(result.user);
@@ -23,7 +22,7 @@ createNewUser()
     return (
         <div>
             <Navbar/>
-            <div className="flex flex-col justify-center items-center my-6 border-2 border-green-700 p-8 rounded-lg w-1/2 mx-auto">
+            <div className="flex flex-col justify-center items-center my-6 border-2 border-green-700 p-8 rounded-lg lg:w-1/2 mx-auto">
   <div>
   {user && user?.email ? (
         <div className="relative flex flex-col items-center">
@@ -48,7 +47,7 @@ createNewUser()
   </div>
   </div>
   <form onSubmit={handleUpdateProfile} className='mb-6'>
-<div className='w-1/2 flex flex-col justify-center mx-auto gap-6 border-2 p-12 mb-6 border-green-700'>
+<div className='lg:w-1/2 flex flex-col justify-center mx-auto gap-6 border-2 p-12 mb-6 border-green-700'>
 <h1 className='text-3xl font-bold text-center'>Update Profile</h1>
 <label className="input input-bordered flex items-center gap-2 mb-4">
   <svg

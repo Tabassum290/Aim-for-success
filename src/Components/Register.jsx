@@ -80,9 +80,9 @@ const Register = () => {
             <div className="bg-base-200 p-12">
                 <div className="hero-content flex-col">
                     <div className="text-center">
-                        <h1 className="text-5xl font-bold">Register Form</h1>
+                        <h1 className="lg:text-5xl text-4xl font-bold">Register Form</h1>
                     </div>
-                    <div className="card bg-base-100 w-full max-w-md p-8">
+                    <div className="card bg-base-100 max-w-full lg:p-8">
                         <form onSubmit={handleRegisterSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -138,7 +138,7 @@ const Register = () => {
                                 </span>
                             </p>
                         </form>
-                        <div className="flex justify-center mb-4">
+                        <div className="flex justify-center mb-4 w-3/4 md:w-full lg:w-full  mx-auto">
                             <button onClick={handleGoogleLogin} className="btn btn-outline w-full">
                                 <span className="text-2xl">
                                     <AiFillGoogleCircle />
@@ -146,7 +146,7 @@ const Register = () => {
                                 Login With Google
                             </button>
                         </div>
-                        <div className="flex justify-center mb-4">
+                        <div className="flex justify-center mb-4  w-3/4 md:w-full lg:w-full  mx-auto">
                             <button onClick={handleGoogleLogin} className="btn btn-outline w-full">
                                 <span className="text-2xl">
                                     <FaFacebook/>

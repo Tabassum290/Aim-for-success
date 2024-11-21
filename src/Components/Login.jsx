@@ -51,9 +51,9 @@ const handleForgotPassword =() => {
            <div className="bg-base-200 p-12">
   <div className="hero-content flex-col">
     <div className="text-center">
-      <h1 className="text-5xl font-bold">Login now!</h1>
+      <h1 className="lg:text-5xl text-4xl font-bold">Login now!</h1>
     </div>
-    <div className="card bg-base-100 w-full max-w-md p-8">
+    <div className="card bg-base-100 w-full max-w-md lg:p-8">
       <form  onSubmit={handleLoginSubmit} className="card-body">
         <div className="form-control">
           <label className="label">

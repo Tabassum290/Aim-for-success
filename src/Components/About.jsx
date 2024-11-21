@@ -16,8 +16,8 @@ const About = () => {
              <p className='font-semibold text-center my-4 text-gray-200'>"Our team of certified career counselors, industry experts, and coaches bring decades of experience in diverse fields, ensuring you receive tailored and actionable guidance."</p>
              </div>
              <div className=' mb-6 rounded-lg w-3/4 lg:mx-28 mx-12 flex flex-col items-center justify-center'>
-                <h1 className='text-4xl font-bold text-white'> Services Provided</h1>
-             <p className='text-gray-200 font-bold text-xl my-2'>"We specialize in : </p>
+                <h1 className='text-4xl font-bold text-white text-center lg:text-left'> Services Provided</h1>
+             <p className='text-gray-200 font-bold text-xl my-2 text-left'>"We specialize in : </p>
                 <ul className='text-gray-200'>
                     <li>1.Career assessments to identify your strengths and passions.</li>
                     <li>2.Resume writing to highlight your achievements.</li>

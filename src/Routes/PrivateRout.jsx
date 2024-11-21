@@ -6,7 +6,7 @@ import Loading from './Page/Loading';
 const PrivateRout = ({children}) => {
     const {user,loading} = useContext(AuthContext);
     const location = useLocation();
-    console.log(location)
+
     if(loading){
 return <Loading/>;
     }
