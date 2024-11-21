@@ -2,8 +2,9 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Consultant = () => {
   const { data } = useLoaderData(); 
   const [bookedServices, setBookedServices] = useState(new Set()); 
@@ -11,12 +12,19 @@ const Consultant = () => {
     setBookedServices((prev) => new Set(prev).add(serviceId));
     toast.success('Service Booked Successfully!', { autoClose: 2000 });
   };
+  useEffect(() => {
+  
+    AOS.init({
+      duration: 1600, 
+      once: true,  
+    });
+  }, []);
 
   return (
     <div>
       <Navbar />
-      <main className="w-11/12 mx-auto">
-        <h1 className="text-3xl font-bold text-center my-8">
+      <main className="w-11/12 mx-auto" data-aos="fade-up">
+        <h1 className="text-3xl font-bold text-center my-8" data-aos="fade-left">
           Book Your Required Service
         </h1>
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

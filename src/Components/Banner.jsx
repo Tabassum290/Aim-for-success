@@ -1,12 +1,19 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Banner = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1600, 
+      once: true,  
+    });
+  }, []);
     return (
         <div className='lg:flex justify-between items-center'>
             <div>
-                <h1 className='text-4xl font-bold'>Welcome to <br/> <span className=' text-green-600'>AIM FOR SUCCESS</span></h1>
+                <h1 className='text-4xl font-bold' data-aos="fade-up">Welcome to <br/> <span className=' text-green-600'>AIM FOR SUCCESS</span></h1>
             </div>
-            <div className="carousel w-full lg:w-3/4 my-8 rounded-lg h-[400px]">
+            <div className="carousel w-full lg:w-3/4 my-8 rounded-lg h-[400px]" data-aos="fade-right">
   <div id="slide1" className="carousel-item relative w-full">
     <img
       src="https://i.ibb.co.com/w49bysq/banner1.jpg"

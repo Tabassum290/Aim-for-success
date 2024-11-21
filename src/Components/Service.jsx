@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SwiperSlide } from 'swiper/react';
 
 const Service = ({service}) => {
     const {image,service_name,category,pricing,counselor,id} = service;
+    
     return (
-        <div>
+        <SwiperSlide>
+          <div>
             <div className="card bg-base-100 w-96 shadow-xl my-8">
   <figure>
     <img className='h-[300px]'
@@ -24,6 +27,8 @@ const Service = ({service}) => {
   </div>
 </div>
         </div>
+        </SwiperSlide>
+        
     );
 };
 
