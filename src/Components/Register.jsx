@@ -31,13 +31,12 @@ const Register = () => {
     };
 
     const handleGoogleLogin = () => {
-        console.log("Google login button clicked");
         console.log(auth,provider)
         signInWithPopup(auth,provider)
             .then(result => {
                 console.log("Google login successful:", result.user);
                 toast.success("Google Login successful!");
-                navigate("/"); // Navigate after successful login
+                navigate("/");
             })
             .catch(error => {
                 console.error("Google login error:", error);
@@ -65,7 +64,7 @@ const Register = () => {
                     updateProfileData({ displayName: name, photoURL: photo })
                         .then(() => {
                             toast.success("Registration Successful. Welcome to Aim");
-                            navigate("/"); // Navigate after successful registration
+                            navigate("/");
                         });
                 })
                 .catch(error => {

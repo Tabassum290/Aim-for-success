@@ -67,8 +67,8 @@ const Navbar = () => {
         <div className="navbar-end flex items-center gap-4">
           <div className="avatar">
             <div className="w-8">
-              {user && user?.email ? (
-                <div className="relative flex flex-col items-center">
+              { user && user?.email ? (
+                <div className="flex flex-col items-center">
                   <img
                     className="w-8 rounded-full"
                     src={user?.photoURL}
@@ -77,8 +77,9 @@ const Navbar = () => {
                     onMouseLeave={handleMouseLeave}
                   />
                   {showName && (
-                    <p className="absolute top-8 left-1/2 transform -translate-x-1/2 text-sm font-semibold">{user.displayName}</p>
+                    <p className="absolute mt-6 text-sm font-semibold">{user.displayName}</p>
                   )}
+              
                 </div>
               ) : (
                 <div className="relative flex flex-col items-center">

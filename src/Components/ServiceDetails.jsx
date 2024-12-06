@@ -20,8 +20,8 @@ const ServiceDetails = () => {
   return (
     <div>
       <Navbar />
-      <section className="grid grid-cols-1 lg:grid-cols-4 mx-auto w-11/12">
-        <div className="col-span-3 lg:ml-40">
+      <section className="grid grid-cols-1 lg:grid-cols-4 mx-auto w-11/12 gap-6">
+        <div className="col-span-2">
           <h2 className='font-bold text-4xl text-green-900 my-6'>{service_name} Details</h2>
         <div className="card bg-base-100 my-8 border-2 border-green-800 p-4">
   <figure>
@@ -49,8 +49,7 @@ const ServiceDetails = () => {
   </div>
 </div>
         </div>
-
-        <div className="col-span-1 border-2 my-6 p-6 rounded-lg border-green-800 mt-28 ">
+        <div className="col-span-1 border-2 my-6 p-6 rounded-lg border-green-800 lg:mt-24 ">
         
         <h2 className="text-2xl font-semibold mb-4">Give A Feedback</h2>
         <div className="rating">
@@ -79,13 +78,13 @@ const ServiceDetails = () => {
           
         </form>
         <div className="mt-6">
-          <h3 className="text-xl font-semibold">Submitted Comments:</h3>
+          <h3 className="text-xl font-semibold">Submitted Feedback:</h3>
           <ul className="mt-4">
             {commentsList.length === 0 ? (
               <p>No feedback submitted yet.</p>
             ) : (
               commentsList.map((comment, index) => (
-                <li key={index} className="p-2 border border-gray-300 rounded mt-2">
+                <li key={index} className="p-2 border border-green-600 rounded mt-2">
                   {comment}
                 </li>
               ))

@@ -10,7 +10,7 @@ const Consultant = () => {
   const [bookedServices, setBookedServices] = useState(new Set()); 
   const handleBook = (serviceId) => {
     setBookedServices((prev) => new Set(prev).add(serviceId));
-    toast.success('Service Booked Successfully!', { autoClose: 2000 });
+    toast.success('Your Required Service Booked Successfully', { autoClose: 2000 });
   };
   useEffect(() => {
   
