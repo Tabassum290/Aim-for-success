@@ -30,9 +30,9 @@
 - swiper: ^11.1.15
 
 # Follow these steps to run this Website :
-1: Clone The Repository
-2: npm install 
-3: Install the dependencies 
-4: Set up environment Variables
-5: npm run dev 
-6: Click to the link from terminal .
+- 1: Clone The Repository
+- 2: npm install 
+- 3: Install the dependencies 
+- 4: Set up environment Variables
+- 5: npm run dev 
+- 6: Click to the link from terminal .
